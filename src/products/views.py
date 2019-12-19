@@ -1,11 +1,21 @@
 from django.shortcuts import render
 from .models import Product
-from .forms import  ProductForm
+from .forms import  ProductForm ,RawProductForm
 # Create your views here.
 
 
 def product_create_view(request):
-    context = {}
+    my_form = RawProductForm()
+    if request.method == "POST":
+        my_form = RawProductForm(request.POST)
+        if my_form.is_valid():
+            print(my_form.cleaned_data)
+            Product.objects.create(**my_form.cleaned_data)
+        else:
+            print(my_form.errors)
+    context = {
+        "form": my_form
+    }
     return render(request, "products/product_create.html", context)
 
 #este é um metodo ultilizando formulario html puro
@@ -32,6 +42,22 @@ def product_create_view(request):
 #     'form': form
 #     }
 #     return render(request, "products/product_create.html", context)
+def top_products(request):
+    obj = {}
+    for i in range(3):
+        if(Product.objects.get(id=i+1)):
+            obj[i] = Product.objects.get(id=i+1)
+            print(obj[i])
+        else:
+            break
+    context = {
+    'object': [obj[0],obj[1],obj[2]]
+    }
+
+    context['object'].append(Product.objects.get(id=4+1))
+
+
+    return render(request,"products/top_products.html", context)
 
 
 

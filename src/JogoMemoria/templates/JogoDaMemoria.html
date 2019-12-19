@@ -1,7 +1,7 @@
-{%extends 'base.html' %}
+{%extends 'base.html'%}
+
 
 {%block content%}
-
 <!DOCTYPE html>
 
 <html>
@@ -13,9 +13,13 @@ table, tr, td {
 	width:100%;
 
 }
+{%load static%}
+{%static "clave.jpg" as clave %}
+{%static "smile.png" as smile%}
+
 
 td {
-	background: url(clave.jpg);
+	background: url({{clave}});
   background-size:cover;
   background-repeat: no-repeat;
 	background-blend-mode:exclusion;
@@ -26,7 +30,6 @@ td {
 	border-width:5px;
 	border-bottom-style:outset;
 }
-
 .carta {
 	opacity: 0;
 	width: 100%;
@@ -87,9 +90,17 @@ function init(bot){
 		jogo.style.visibility = 'visible';
 
 
-		butao = bot;
-		var imagens = ["/do.jpg","re.jpg","mi.jpg","fa.jpg","sol.jpg","la.jpg","si.jpg",
-		"do.jpg","re.jpg","mi.jpg","fa.jpg","sol.jpg","la.jpg","si.jpg"];
+//definindo e recolhendo as imagens do staticfiles
+//por padrao irie nomealos de abcdefg
+		{%static "a.jpg" as a %}
+		{%static "b.jpg" as b %}
+		{%static "c.jpg" as c %}
+		{%static "d.jpg" as d %}
+		{%static "e.jpg" as e %}
+		{%static "f.jpg" as f %}
+		{%static "g.jpg" as g %}
+		var imagens = ['{{a}}',"{{b}}","{{c}}","{{d}}","{{e}}","{{f}}","{{g}}",
+		'{{a}}',"{{b}}","{{c}}","{{d}}","{{e}}","{{f}}","{{g}}"];
 		var b = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 		var val =[1,2,3,4,5,6,7];
 		bot.innerHTML="PODE JOGAR!!";
@@ -98,22 +109,22 @@ function init(bot){
 		count = 0;
 		b.sort(function(a, b){return 0.5 - Math.random()});
 		for (i in b){
-		var linha = document.getElementById(b[i]);
-		linha.setAttribute("valor", imagens[i]);
-		linha.src = imagens[count];
-		//linha.setAttribute("valor", i);
+			var linha = document.getElementById(b[i]);
+			linha.setAttribute("valor", imagens[i]);
+			linha.src = imagens[count];
+			//linha.setAttribute("valor", i);
 
 
 
 
-		if (linha.getAttribute.valor == "do.jpg"){linha.setAttribute("valor", '0');}
-		if (linha.src == "re.jpg"){linha.setAttribute("valor", '1');}
-		if (linha.src == "mi.jpg"){linha.setAttribute("valor", '2');}
-		if (linha.src == "fa.jpg"){linha.setAttribute("valor", '3');}
-		if (linha.src == "sol.jpg"){linha.setAttribute("valor", '4');}
-		if (linha.src == "la.jpg"){linha.setAttribute("valor", '5');}
-		if (linha.src == "si.jpg"){linha.setAttribute("valor", '6');}
-		count = count+1;
+			if (linha.getAttribute.valor == "do.jpg"){linha.setAttribute("valor", '0');}
+			if (linha.src == "re.jpg"){linha.setAttribute("valor", '1');}
+			if (linha.src == "mi.jpg"){linha.setAttribute("valor", '2');}
+			if (linha.src == "fa.jpg"){linha.setAttribute("valor", '3');}
+			if (linha.src == "sol.jpg"){linha.setAttribute("valor", '4');}
+			if (linha.src == "la.jpg"){linha.setAttribute("valor", '5');}
+			if (linha.src == "si.jpg"){linha.setAttribute("valor", '6');}
+			count = count+1;
   }
 }
 
@@ -143,9 +154,9 @@ function verifica() {
 	if (valor1 == valor2) {
 		acertos += 1;
 		primeiraCarta.style.opacity = "0.9";
-		primeiraCarta.setAttribute('src','/smile.png');
+		primeiraCarta.setAttribute('src',"{{smile}}");
 		segundaCarta.style.opacity = "0.9";
-		segundaCarta.setAttribute('src','smile.png');
+		segundaCarta.setAttribute('src',"{{smile}}");
 
 	}
 	else {
@@ -161,6 +172,7 @@ function verifica() {
 
 	if (acertos == numPares) {
 		alert("O jogo terminou.");
+		window.location.href = '';
 	}
 }
 
@@ -169,7 +181,6 @@ function verifica() {
 <title>Jogo da Memória</title>
 </head>
 <body>
-
 	<div class="divisao">
 	<!-- <h2 style='color:white;'>Jogo da Memória</h2>
 	<p>pontos</p><p id='pontos'></p> -->
@@ -178,10 +189,11 @@ function verifica() {
 <button  class ='botao' onclick=init(this) id="bot" value="0" name="botao">CLIQUE PARA COMEÇAR O JOGO</button>
 </div>
 <div class="esconde" id="escondido">
-
+{%load static%}
 	<table class="tabela">
 		<tr class = 'ted'>
-			<td><img src="a.png" id=1   class="carta" onclick="abre(this)"></td>
+
+			<td><img src="{%static "do.jpg"%}" id=1   class="carta" onclick="abre(this)"></td>
 			<td><img src="b.png" id=2   class="carta" onclick="abre(this)"></td>
 			<td><img src="b.png" id=3   class="carta" onclick="abre(this)"></td>
 			<td><img src="c.png" id=4   class="carta" onclick="abre(this)"></td>
@@ -202,7 +214,6 @@ function verifica() {
 
 	</table>
 </div>
-
 </body>
 </html>
-{%endblock content%}
+{%endblock%}

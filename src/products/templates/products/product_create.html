@@ -5,7 +5,7 @@
 
 
 <form  method='POST' action = '.'> {% csrf_token %}
-  <input type="text" name="title" value="Your Title">
+  {{form.as_p}}
   <input type="submit" name="" value="Save">
 </form>
 {%endblock%}
