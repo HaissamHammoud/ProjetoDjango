@@ -12,7 +12,7 @@ class ProductForm(ModelForm):
         ]
 
 class RawProductForm(forms.Form):
-    title  = forms.CharField(widget = forms.Textarea(attrs={"placeholder": "title"}))
+    title  = forms.CharField(widget = forms.TextInput(attrs={"placeholder":"title name"}))
     description = forms.CharField(required = False, widget = forms.Textarea(
         attrs = {
             "class": "new-class-name two",

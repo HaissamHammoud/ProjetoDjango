@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product
 from .forms import  ProductForm ,RawProductForm
 # Create your views here.
+
+
 
 
 def product_create_view(request):
@@ -18,30 +20,6 @@ def product_create_view(request):
     }
     return render(request, "products/product_create.html", context)
 
-#este é um metodo ultilizando formulario html puro
-#Nao recomendado
-
-
-# def product_create_view(request):
-#     if request.method == "POST":
-#
-#         new_title = request.POST.get('title')
-#         Product.objects.create(title = new_title)
-#     context = {}
-#     return render(request, "products/product_create.html", context)
-
-#este é um metodo pronto que cria um formulario ja pre montado
-#bom para agilidae e prototipos  pois economisa tempo e facilita o teste
-
-# def product_create_view(request):
-#     form = ProductForm(request.POST or None )
-#     if form.is_valid():
-#         form.save()
-#
-#     context = {
-#     'form': form
-#     }
-#     return render(request, "products/product_create.html", context)
 def top_products(request):
     obj = {}
     for i in range(3):
@@ -61,9 +39,39 @@ def top_products(request):
 
 
 
-def product_detail_view(request):
-    obj = Product.objects.get(id=1)
+def product_dynamic_view(request, my_id):
+    obj = get_object_or_404(Product, id = my_id)
     context = {
     'object' : obj,
     }
     return render(request,"products/detail.html", context)
+
+
+def loja_view(request):
+        return render(request,"menu_loja.html", {})
+
+
+        #este é um metodo ultilizando formulario html puro
+        #Nao recomendado
+
+
+        # def product_create_view(request):
+        #     if request.method == "POST":
+        #
+        #         new_title = request.POST.get('title')
+        #         Product.objects.create(title = new_title)
+        #     context = {}
+        #     return render(request, "products/product_create.html", context)
+
+        #este é um metodo pronto que cria um formulario ja pre montado
+        #bom para agilidae e prototipos  pois economisa tempo e facilita o teste
+
+        # def product_create_view(request):
+        #     form = ProductForm(request.POST or None )
+        #     if form.is_valid():
+        #         form.save()
+        #
+        #     context = {
+        #     'form': form
+        #     }
+        #     return render(request, "products/product_create.html", context)

@@ -25,7 +25,8 @@ SECRET_KEY = 'g4#%+4a6j*%=19qcd=%88j4a7eg2^x8^8kv2m%@8zi6-ze)n@-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0',
+                '192.168.100.89']
 
 
 # Application definition
@@ -40,7 +41,8 @@ INSTALLED_APPS = [       #indica os apps instalados
     #new apps
     'products',
     'pages',
-    'JogoMemoria'
+    'JogoMemoria',
+    'estacionamento'
 
 ]
 
