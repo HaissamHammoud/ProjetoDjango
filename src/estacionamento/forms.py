@@ -10,3 +10,17 @@ class CarForms(ModelForm):
         'placa',
 
         ]
+
+class CarIdForm(ModelForm):
+    class Meta:
+        model = Car
+        fields =[
+        'id'
+        ]
+#
+# class CarExit(ModelForm):
+#     class Meta;
+#     model = Car
+#     fields= [
+#
+#     ]

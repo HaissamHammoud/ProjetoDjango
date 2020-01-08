@@ -1,22 +1,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style media="screen">
-  div{
-    background-color :grey;
-  }
+
   .btn-group .button{
     background-color: #4CAF50; /* Green */
-    border: 2px solid green;
+
+    border-radius:10px;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-size: 16px;
     cursor: pointer;
-    float: left;
+
     position:bottom;
-    width:25%;
+    width:100%;
   }
 
 .btn-group .button:not(:last-child) {
@@ -25,13 +24,16 @@
 
 .btn-group .button:hover {
   background-color: #3e8e41;
+  opacity:0.8;
+  font-size:25px;
+  color:black;
 }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="btn-group">
-  <button href="/" class="button" name="button"><a href="/">home</a></button>
-  <button href='/loja/menu' class="button" name="button"><a href='/loja/menu'>Loja</a></button>
-  <button class="button" name="button"><a href="/estacionamento/entrance">estacionamento<</a></button>
-  <button class="button"name="button"><a href="/memoria">Jogo da Memoria</a></button>
+  <button onclick="window.location.href = '/';" class="button" name="button" >HOME</button>
+  <button onclick="window.location.href = '/loja/menu';" class="button" name="button">Loja</button>
+  <button onclick="window.location.href = '/estacionamento/entrance';" class="button" name="button">estacionamento</button>
+  <button onclick="window.location.href = '/memoria';" class="button"name="button">Memoria</button>
 </div>

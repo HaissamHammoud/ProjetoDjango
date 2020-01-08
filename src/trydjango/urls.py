@@ -32,6 +32,7 @@ urlpatterns = [
     path('memoria/',memoria_view, name = 'jogo'),
     path('estacionamento/entrance/', car_entrance, name = "entrada"),
     path('estacionamento/exit/', car_exit, name = "saida"),
-    path('estacionamento/',car_menu, name='menu')
+    path('estacionamento/',car_menu, name='menu'),
+    path('estacionamento/exit/<int:my_id>',car_detail_view),
 
 ]

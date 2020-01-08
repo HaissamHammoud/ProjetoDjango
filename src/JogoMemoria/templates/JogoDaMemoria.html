@@ -9,38 +9,33 @@
 <head>
 <style>
 
-table, tr, td {
-	border:none;
-	width:100%;
-
-}
 {%load static%}
 {%static "clave.jpg" as clave %}
 {%static "smile.png" as smile%}
-
-
 td {
 	background: url({{clave}});
   background-size:cover;
   background-repeat: no-repeat;
 	background-blend-mode:exclusion;
-	width: 15%;
-	height: 15%;
+	width: 10%;
+	height: 30%;
 	border-width: medium;
 	border-radius:10px;
 	border-width:5px;
 	border-bottom-style:outset;
 }
+.tabela{
+	height:100%;
+	width:100%;
+}
 .carta {
+	background:blue;
 	opacity: 0;
 	width: 100%;
-
-	height: 15%;
+	height: 100%;
 	border-width: medium;
 	border-radius:10px;
-
 }
-
 .divisao{
 	position:top;
 	padding-right: 0px;
@@ -51,7 +46,6 @@ td {
 	border-top-right-radius:20px;
 	border-top-left-radius:20px;
 	padding-bottom: 10%;
-
 }
 .botao{
   position:bottom;
@@ -64,7 +58,6 @@ td {
 }
 .divisao2{
 	position:bottom;
-
 	background-color: black;
 	border-top-right-radius:20px;
 	border-top-left-radius:20px;
@@ -72,23 +65,17 @@ td {
 .esconde{
 	visibility:hidden;
 }
-
 </style>
 <script>
 var primeiraCarta = null;
 var segundaCarta = null;
-
 var numPares = 7;
-
 var acertos = 0;
-
 function init(bot){
 	if (document.getElementById("bot").value =='0'){
 		document.getElementById("bot").setAttribute('value','1');
 		var jogo = document.getElementById('escondido');
 		jogo.style.visibility = 'visible';
-
-
 //definindo e recolhendo as imagens do staticfiles
 //por padrao irie nomealos de abcdefg
 		{%static "a.jpg" as a %}
@@ -104,7 +91,6 @@ function init(bot){
 		var val =[1,2,3,4,5,6,7];
 		bot.innerHTML="PODE JOGAR!!";
 		//butao.setAttribute.color=black;
-
 		count = 0;
 		b.sort(function(a, b){return 0.5 - Math.random()});
 		for (i in b){
@@ -112,10 +98,6 @@ function init(bot){
 			linha.setAttribute("valor", imagens[i]);
 			linha.src = imagens[count];
 			//linha.setAttribute("valor", i);
-
-
-
-
 			if (linha.getAttribute.valor == "do.jpg"){linha.setAttribute("valor", '0');}
 			if (linha.src == "re.jpg"){linha.setAttribute("valor", '1');}
 			if (linha.src == "mi.jpg"){linha.setAttribute("valor", '2');}
@@ -126,14 +108,10 @@ function init(bot){
 			count = count+1;
   }
 }
-
 }
-
 function abre(elemento) {
-
 	elemento.style.opacity = "1";
 	elemento.style.pointerEvents = 'none';
-
 	if (primeiraCarta == null) {
 		primeiraCarta = elemento;
 	}
@@ -142,39 +120,29 @@ function abre(elemento) {
 		setTimeout(verifica, 500);
 	}
 }
-
 function verifica() {
-
 	var valor1 = primeiraCarta.getAttribute("valor");
 	var valor2 = segundaCarta.getAttribute("valor");
-
-
-
 	if (valor1 == valor2) {
 		acertos += 1;
-		primeiraCarta.style.opacity = "0.9";
-		primeiraCarta.setAttribute('src',"{{smile}}");
-		segundaCarta.style.opacity = "0.9";
-		segundaCarta.setAttribute('src',"{{smile}}");
+		primeiraCarta.style.opacity = "0.5";
+		primeiraCarta.style.background='black';
+		segundaCarta.style.opacity = "0.5";
 
 	}
 	else {
 		primeiraCarta.style.opacity = "0";
 		primeiraCarta.style.pointerEvents = 'auto';
-
 		segundaCarta.style.opacity = "0";
 		segundaCarta.style.pointerEvents = 'auto';
 	}
-
 	primeiraCarta = null;
 	segundaCarta = null;
-
 	if (acertos == numPares) {
 		alert("O jogo terminou.");
 		window.location.href = '';
 	}
 }
-
 </script>
 <meta charset="utf-8">
 <title>Jogo da Memória</title>
@@ -192,7 +160,7 @@ function verifica() {
 	<table class="tabela">
 		<tr class = 'ted'>
 
-			<td><img src="{%static "do.jpg"%}" id=1   class="carta" onclick="abre(this)"></td>
+			<td><img src="a.png" id=1   class="carta" onclick="abre(this)"></td>
 			<td><img src="b.png" id=2   class="carta" onclick="abre(this)"></td>
 			<td><img src="b.png" id=3   class="carta" onclick="abre(this)"></td>
 			<td><img src="c.png" id=4   class="carta" onclick="abre(this)"></td>
@@ -209,9 +177,9 @@ function verifica() {
 			<td><img src="b.png" id=13  class="carta" onclick="abre(this)"></td>
 			<td><img src="c.png" id=14  class="carta" onclick="abre(this)"></td>
 
-		</div>
 
 	</table>
+</div>
 </div>
 </body>
 </html>
