@@ -1,5 +1,6 @@
 # ProjetoDjango
 Este é um projeto Django para testar e demonstrar a utilização do framework Django
+
 Como a adição de novos projetos com django é facil e organizada , optei por fazer pequenos projetos que lidam com diversas ferramentas.
 
 Atualmente criei
