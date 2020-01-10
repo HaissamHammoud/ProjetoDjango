@@ -44,11 +44,10 @@
   <body>
 
 <h1>saida de carros</h1>
+<form class="" action="{%url 'estacionamento:redirect' 0%}" method="POST">{%csrf_token%}
 
-<form action="{%url 'estacionamento/exit' %}" method = "POST" >
-    <label for="team_name">Enter name: </label>
-    <input id="team_name" type="text" name="id" value="team_name">
-    <input type="submit" value="OK">
+  <input type="integer" name="carid">
+  <input type="submit" name="" value="saida">
 
 </form>
   </body>
