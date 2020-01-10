@@ -14,12 +14,15 @@ Sistema Estacionamento:
           o processo de entrada,)
       5-Sistema admin onde o administrador pode fazer alterações manualmente ao banco de dados SQL
 Sistema de produtos(Loja):
+
   Um sistema que permite o registro e demonstra os principais produtos em uma vitrine.
 Jogo da Memoria musical:
+
   Um jogo feito em HTML,CSS e Javascript , este jogo ocorre inteiramente no front-end, ele basicamente acessa as imagens internamente 
   e sorteia e esconde as cartas ao iniciar o jogo.
 
 Por vir (trabalhando atualmente):
+
   site de cadastramento de pergutnas(com votação)
   sistema de alunos(sistema para gerenciar os seus alunos e  facilitar a acessibilidade de conteudos , tarefas e pagamentos)
 
