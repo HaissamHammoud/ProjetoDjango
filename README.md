@@ -7,8 +7,6 @@ Sistema Estacionamento:
   Um sistema simples de estacionamento, responsavel por entrar , sair e cobrar os carros na saida:
   
       1-Armazena a placa do carro, o modelo , o horario de entrada
-      
-      
       2-possui um sistema de busca nos carros ja registrados ultilizando o ID  que foi registrado.
       3-Logo sera possivel fazer a retirada de um carro e efetuar a cobrança 
       4-Responsivo, podendo ser operado pelo celular(a ideia é que a equipe inteira possa entrar com os carros assima gilizando 
