@@ -1,11 +1,14 @@
 # ProjetoDjango
 Este é um projeto Django para testar e demonstrar a utilização do framework Django
-Como a adição de novos projetos com django é facil e organizada , optei por fazer pequenos projetos que lidão diversas ferramentas.
+Como a adição de novos projetos com django é facil e organizada , optei por fazer pequenos projetos que lidam com diversas ferramentas.
 
 Atualmente criei
 Sistema Estacionamento:
   Um sistema simples de estacionamento, responsavel por entrar , sair e cobrar os carros na saida:
+  
       1-Armazena a placa do carro, o modelo , o horario de entrada
+      
+      
       2-possui um sistema de busca nos carros ja registrados ultilizando o ID  que foi registrado.
       3-Logo sera possivel fazer a retirada de um carro e efetuar a cobrança 
       4-Responsivo, podendo ser operado pelo celular(a ideia é que a equipe inteira possa entrar com os carros assima gilizando 
